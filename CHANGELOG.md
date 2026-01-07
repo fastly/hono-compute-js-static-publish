@@ -11,31 +11,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Publish using CI
 
-## [0.5.2] - 2024-10-15
+### Fixed
+
+- Fix changelog dates
+
+## [0.5.2] - 2025-10-15
 
 ### Added
 
 - Add fromPublisherServer and fromStaticPublishRc helpers
 
-## [0.5.1] - 2024-10-10
+## [0.5.1] - 2025-10-10
 
 ### Fixed
 
 - Bump `hono` dependency
 
-## [0.5.0] - 2024-10-06
+## [0.5.0] - 2025-10-06
 
 ### Changed
 
 - BREAKING: Moved to `@fastly` scope
 
-## [0.3.0] - 2024-08-30
+## [0.3.0] - 2025-08-30
 
 ### Added
 
 - Update for @fastly/compute-js-static-publish v7
 
-## [0.2.0] - 2024-04-26
+## [0.2.0] - 202-04-26
 
 ### Added
 
