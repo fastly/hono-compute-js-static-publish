@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Updated
+
+- README: this package does not support `@fastly/compute-js-static-publish` v8.0, and will be deprecated when that package supports Hono directly. A workaround example for v8.0.
+
 ## [0.5.4] - 2026-02-13
 
 ### Updated

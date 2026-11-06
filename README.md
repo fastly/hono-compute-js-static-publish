@@ -8,6 +8,39 @@ Works with:
 * Hono v4.x
 * [@fastly/compute-js-static-publish](https://www.npmjs.com/package/@fastly/compute-js-static-publish) v6.x and v7.x
 
+> [!NOTE]
+> This package does not support `@fastly/compute-js-static-publish` v8.0. A future version of `@fastly/compute-js-static-publish` will support Hono directly, and this package will be deprecated.
+>
+> As a workaround, you can serve the published files from a Hono app using `PublisherServer` directly:
+>
+>   ```javascript
+>   import { Hono } from 'hono';
+>   import { fire } from '@fastly/hono-fastly-compute';
+>   import { PublisherServer } from '@fastly/compute-js-static-publish';
+>   import rc from '../static-publish.rc.js';
+>
+>   const publisherServer = PublisherServer.fromStaticPublishRc(rc);
+>
+>   const app = new Hono();
+>
+>   // Your own routes go before the static files.
+>   app.get('/api/hello', (c) => c.json({ hello: 'world' }));
+>
+>   // Serve the published files. serveRequest() also serves the SPA file or the
+>   // 404 page, so a route after this middleware does not get requests.
+>   app.use('*', async (c, next) => {
+>     const response = await publisherServer.serveRequest(c.req.raw);
+>     if (response != null) {
+>       return response;
+>     }
+>     await next();
+>   });
+>
+>   fire(app);
+>   ```
+>
+>   Install `hono` and `@fastly/hono-fastly-compute` in the app. With `@fastly/js-compute` v4, use `@fastly/hono-fastly-compute` v0.4.0 or later.
+
 ## Example
 
 ### compute-js-static-publish v7
